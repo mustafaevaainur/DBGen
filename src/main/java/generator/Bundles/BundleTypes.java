@@ -1,0 +1,16 @@
+package generator.Bundles;
+
+import io.dummymaker.bundle.impl.BasicBundle;
+
+public class BundleTypes extends BasicBundle<String> {
+    public BundleTypes() {
+        super(
+                "Штраф",
+                "Лишение права заниматься определенной деятельностью",
+                "Щбязательные работы",
+                "Исправительные работы",
+                "Ограничение свободы",
+                "Лишение свободы на определенный срок"
+        );
+    }
+}

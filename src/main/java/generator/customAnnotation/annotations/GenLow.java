@@ -1,6 +1,6 @@
 package generator.customAnnotation.annotations;
 
-import generator.customAnnotation.impl.CityIdGenerator;
+import generator.customAnnotation.impl.LowGenerator;
 import io.dummymaker.annotation.PrimeGen;
 
 import java.lang.annotation.ElementType;
@@ -8,8 +8,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@PrimeGen(CityIdGenerator.class)
+@PrimeGen(LowGenerator.class)
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
-public @interface GenCityId {
+public @interface GenLow {
 }

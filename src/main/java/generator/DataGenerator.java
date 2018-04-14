@@ -1,12 +1,9 @@
 package generator;
 
 import generator.POJO.*;
-import generator.POJO.column.OptionActivation;
-import generator.POJO.column.TariffActivation;
-import generator.POJO.column.UsagePerMonth;
-import generator.POJO.document.*;
+
 import generator.POJO.graph.*;
-import generator.customAnnotation.impl.OperatorGenerator;
+import generator.customAnnotation.impl.PigsNameGenerator;
 import io.dummymaker.export.IExporter;
 import io.dummymaker.export.impl.CsvExporter;
 import io.dummymaker.factory.IProduceFactory;
@@ -17,56 +14,58 @@ import java.util.List;
 
 public class DataGenerator {
 
-    private final int usersNumber = 2000000;
-    private final int operatorsNumber = OperatorGenerator.getOperatorsNumber();
-    private final int optionsNumber = 40;
-    private final int citiesNumber = 50;
-    private final int tariffsNumber = 40;
+    private final int pigsNumber = 2000;
+    /*private final int operatorsNumber = OperatorGenerator.getOperatorsNumber();
+    private final int doneActionsNumber = 40;
+    private final int didNumber = 50;
+    private final int whyCanDoNumber = 40;*/
 
-    private final int tariffsActivationNumber = usersNumber;
-    private final int optionsActivationNumber = usersNumber;
-    private final int usagePerMonthNumber = usersNumber;
+   /* private final int tariffsActivationNumber = pigsNumber;
+    private final int optionsActivationNumber = pigsNumber;
+    private final int usagePerMonthNumber = pigsNumber;*/
 
-    private final int fromCityRelNumber = usersNumber;
-    private final int hasTariffRelNumber = 100;
-    private final int hasOptionRelNumber = 300;
+    private final int pigsNameNumber = pigsNumber;
+    private final int whatCanDoNumber = pigsNumber;
+    private final int whatAlreadyDoneNumber = pigsNumber;
+    private final int whyCanDoNumber = pigsNumber;
 
-    private List<Integer> usersId;
+    /*private List<Integer> usersId;
     private List<Integer> operatorsId;
     private List<Integer> optionsId;
     private List<Integer> citiesId;
     private List<Integer> tariffsId;
 
     private List<OptionActivation> optionActivations;
-    private List<TariffActivation> tariffActivations;
-    private List<UsesOptionRel> usesOptionRels = new ArrayList<>();
-    private List<UsesTariffRel> usesTariffRels = new ArrayList<>();
+    private List<TariffActivation> tariffActivations;*/
+    /*private List<UsesOptionRel> usesOptionRels = new ArrayList<>();
+    private List<UsesTariffRel> usesTariffRels = new ArrayList<>();*/
 
     private IProduceFactory factory = new GenProduceFactory();
     private IExporter exporter = new CsvExporter();
 
     public void generate() {
 
-        /* generate data for document-oriented */
-        usersId = generateObject(User.class, usersNumber);
+        /* generate data for document-oriented *//*
+        usersId = generateObject(User.class, pigsNumber);
         operatorsId = generateObject(Operator.class, operatorsNumber);
-        optionsId = generateObject(Option.class, optionsNumber);
-        citiesId = generateObject(City.class, citiesNumber);
-        tariffsId = generateObject(Tariff.class, tariffsNumber);
+        optionsId = generateObject(Option.class, doneActionsNumber);
+        citiesId = generateObject(City.class, didNumber);
+        tariffsId = generateObject(Tariff.class, whyCanDoNumber);
 
 
-        /* generate data for column-oriented */
+        *//* generate data for column-oriented *//*
         tariffActivations = generateColumnObject(TariffActivation.class, tariffsActivationNumber);
         optionActivations = generateColumnObject(OptionActivation.class, optionsActivationNumber);
-        generateColumnObject(UsagePerMonth.class, usagePerMonthNumber);
+        generateColumnObject(UsagePerMonth.class, usagePerMonthNumber);*/
 
 
         /* generate data for graph */
-        generateObject(FromCityRel.class, fromCityRelNumber);
-        generateObject(HasOptionRel.class, hasOptionRelNumber);
-        generateObject(HasTariffRel.class, hasTariffRelNumber);
+        generateObject(PigsRel.class, pigsNameNumber);
+        generateObject(WhatAlreadyDoneRel.class, whatAlreadyDoneNumber);
+        generateObject(WhatCanDoRel.class, whatCanDoNumber);
+        generateObject(WhyCanDoRel.class, whyCanDoNumber);
 
-        for (TariffActivation ta : tariffActivations) {
+        /*for (TariffActivation ta : tariffActivations) {
             usesTariffRels.add(new UsesTariffRel(ta.getId(), ta.getTariffId()));
         }
         exporter.export(usesTariffRels);
@@ -78,7 +77,8 @@ public class DataGenerator {
         }
         exporter.export(usesOptionRels);
         optionActivations.clear();
-        usesOptionRels.clear();
+        usesOptionRels.clear();*/
+
     }
 
     private <T extends DBObject> List<Integer> generateObject(Class<T> tClass, int amount) {
