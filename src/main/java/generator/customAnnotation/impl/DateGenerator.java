@@ -2,15 +2,13 @@ package generator.customAnnotation.impl;
 
 import io.dummymaker.generator.IGenerator;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
-public class PigsNameGenerator implements IGenerator<Integer> {
+public class DateGenerator implements IGenerator<Integer> {
 
     @Override
     public Integer generate() {
-        int maxNumber = 40;
+        int maxNumber = 55;
 
         Random r = new Random();
         return r.nextInt(maxNumber)+1;
