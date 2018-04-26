@@ -13,7 +13,7 @@ import java.util.List;
 
 public class DataGenerator {
 
-    private final int pigsNumber = 200;
+    private final int pigsNumber = 2000000;
 
     private final int ageNumber = pigsNumber;
     private final int cityNumber = pigsNumber;
@@ -35,21 +35,21 @@ public class DataGenerator {
     public void generate() {
 
         /*mongo*/
-        generateObject(AgeGen.class, ageNumber);
-        generateObject(CityGen.class, cityNumber);
-        generateObject(ReasonGen.class, reasonNumber);
-        generateObject(GenderGen.class, genderNum);
+        generateObject(GenMongo.class, ageNumber);
+        generateObject(GenMongo.class, cityNumber);
+        generateObject(GenMongo.class, reasonNumber);
+        generateObject(GenMongo.class, genderNum);
 
         /*cassandra*/
-        generateObject(IdGen.class, idNumber);
-        generateObject(DescriptionGen.class , descriptionNumber);
-        generateObject(DateGen.class, dateNumber);
+        generateObject(GenCassandra.class, idNumber);
+        generateObject(GenCassandra.class , descriptionNumber);
+        generateObject(GenCassandra.class, dateNumber);
 
         /* generate data for graph */
-        generateObject(PigsRel.class, pigsNameNumber);
-        generateObject(WhatAlreadyDoneRel.class, whatAlreadyDoneNumber);
-        generateObject(WhatCanDoRel.class, whatCanDoNumber);
-        generateObject(WhyCanDoRel.class, whyCanDoNumber);
+        generateObject(GenNeo4j.class, pigsNameNumber);
+        generateObject(GenNeo4j.class, whatAlreadyDoneNumber);
+        generateObject(GenNeo4j.class, whatCanDoNumber);
+        generateObject(GenNeo4j.class, whyCanDoNumber);
 
 
 
