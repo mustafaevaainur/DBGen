@@ -51,8 +51,6 @@ public class DataGenerator {
         generateObject(GenNeo4j.class, whatCanDoNumber);
         generateObject(GenNeo4j.class, whyCanDoNumber);
 
-
-
     }
 
     private <T extends DBObject> List<Integer> generateObject(Class<T> tClass, int amount) {

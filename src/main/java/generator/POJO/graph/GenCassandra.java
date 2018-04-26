@@ -16,6 +16,7 @@ public class GenCassandra implements DBObject {
     @GenDate
     private String date;
 
+    /*----------чуть-чуть не реализовано----------*/
     /*set_of_crimes (set<text>)*/
 
     @Override
