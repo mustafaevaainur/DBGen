@@ -7,6 +7,7 @@ import generator.customAnnotation.annotations.GenReason;
 import io.dummymaker.annotation.special.GenEnumerate;
 import io.dummymaker.annotation.string.GenCity;
 import io.dummymaker.annotation.string.GenName;
+import io.dummymaker.annotation.string.GenNoun;
 
 public class GenMongo implements DBObject {
     @GenEnumerate(from = 1)
@@ -21,10 +22,12 @@ public class GenMongo implements DBObject {
     @GenAge
     private Integer age;
 
-    /*----------чуть-чуть не реализовано----------*/
-    /*Активы
-    Взяла с собой
-    Осталось на родине*/
+    @GenNoun
+    private String what_take;
+
+    @GenNoun
+    private String what_left;
+
 
     @GenCity
     private String city;

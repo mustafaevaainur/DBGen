@@ -16,7 +16,7 @@ public class GenNeo4j implements DBObject {
     private String name;
 
     @GenLow
-    private String action;
+    private String low;
 
     @GenType
     private String action_type;

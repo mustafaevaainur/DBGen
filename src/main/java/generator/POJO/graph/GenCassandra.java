@@ -2,6 +2,7 @@ package generator.POJO.graph;
 
 import generator.POJO.DBObject;
 import generator.customAnnotation.annotations.GenAge;
+import generator.customAnnotation.annotations.GenLow;
 import generator.customAnnotation.annotations.GenReason;
 import io.dummymaker.annotation.special.GenEnumerate;
 import io.dummymaker.annotation.time.GenDate;
@@ -16,8 +17,8 @@ public class GenCassandra implements DBObject {
     @GenDate
     private String date;
 
-    /*----------чуть-чуть не реализовано----------*/
-    /*set_of_crimes (set<text>)*/
+    @GenLow
+    private String low;
 
     @Override
     public Integer getId() {

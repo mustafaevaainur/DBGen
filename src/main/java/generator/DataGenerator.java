@@ -5,6 +5,7 @@ import generator.POJO.*;
 import generator.POJO.graph.*;
 import io.dummymaker.export.IExporter;
 import io.dummymaker.export.impl.CsvExporter;
+import io.dummymaker.export.impl.JsonExporter;
 import io.dummymaker.factory.IProduceFactory;
 import io.dummymaker.factory.impl.GenProduceFactory;
 
@@ -13,7 +14,7 @@ import java.util.List;
 
 public class DataGenerator {
 
-    private final int pigsNumber = 2000000;
+    private final int pigsNumber = 200;
 
     private final int ageNumber = pigsNumber;
     private final int cityNumber = pigsNumber;
@@ -30,7 +31,7 @@ public class DataGenerator {
     private final int dateNumber = pigsNumber;
 
     private IProduceFactory factory = new GenProduceFactory();
-    private IExporter exporter = new CsvExporter();
+    private IExporter exporter = new JsonExporter();
 
     public void generate() {
 
